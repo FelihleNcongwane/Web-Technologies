@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mouse Events</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f2f2f2;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      text-align: center;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .button {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+
+    .button:hover {
+      background-color: #45a049;
+    }
+
+    .textarea {
+      width: 300px;
+      height: 200px;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Mouse Events</h1>
+
+    <input type="button" value="Single, Double or Right Click" onclick="logEvent(event)" onmousedown="logEvent(event)" onmouseup="logEvent(event)" onmouseover="logEvent(event)" onmouseout="logEvent(event)" ondblclick="logEvent(event)" oncontextmenu="logEvent(event)" class="button" />
+
+    <input type="button" value="Clear" onclick="clearText()" class="button" />
+    <br /><br />
+
+    <textarea id="txtArea" class="textarea"></textarea>
+  </div>
+
+  <script type="text/javascript">
+    function logEvent(event) {
+      event = event || window.event;
+      document.getElementById("txtArea").value += event.type + "\r\n";
+    }
+
+    function clearText() {
+      document.getElementById("txtArea").value = "";
+    }
+  </script>
+</body>
+</html>
